@@ -1,0 +1,24 @@
+PODS:
+  - Cosmos (15.0.0)
+  - PureLayout (2.0.6)
+  - SnapKit (4.0.0)
+
+DEPENDENCIES:
+  - Cosmos (~> 15.0)
+  - PureLayout (~> 2.0.5)
+  - SnapKit (~> 4.0)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Cosmos
+    - PureLayout
+    - SnapKit
+
+SPEC CHECKSUMS:
+  Cosmos: a6dbd3d0baa0cc8f51f8598f7508d5a09d0a9ade
+  PureLayout: f25f0bb904d5ccfe6e31da3cb869185259f02e0d
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+
+PODFILE CHECKSUM: 06c08a92772387d0d616382e8b2d2ae57182b387
+
+COCOAPODS: 1.5.0
