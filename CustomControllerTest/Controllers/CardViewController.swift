@@ -17,20 +17,50 @@ class CardViewController: UIView {
     // VIEWS
     var cardView: UIView!
     var clipView: UIView!
-    var scrollView: UIScrollView!
+    var scrollView: UIScrollView = {
+        let view = UIScrollView.newAutoLayout()
+        view?.translatesAutoresizingMaskIntoConstraints = false
+        return view!
+    }()
     
     // IMAGES
     var cardImageView: UIImageView!
     
     // TEXT
-    var placeTitleLabelView: UIView!
-    var placeTitleLabel: UILabel!
-    var placeDistanceLabelView: UIView!
-    var placeDistanceLabel: UILabel!
-    var placeNumReviewsLabelView: UIView!
-    var placeNumReviewsLabel: UILabel!
-    var openNowLabelView: UIView!
-    var openNowLabel: UILabel!
+    var placeTitleLabel: UILabel = {
+        let label = UILabel.newAutoLayout()
+        label?.numberOfLines = 1
+        label?.lineBreakMode = .byClipping
+        label?.textColor = .white
+        label?.font = UIFont(name: "Gibson-Semibold", size: 25)
+        return label!
+    }()
+    var placeDistanceLabel: UILabel = {
+        let label = UILabel.newAutoLayout()
+        label?.numberOfLines = 1
+        label?.lineBreakMode = .byClipping
+        label?.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
+        label?.font = UIFont(name: "Gibson-Regular", size: 18)
+        return label!
+    }()
+    var placeNumReviewsLabel: UILabel = {
+        let label = UILabel.newAutoLayout()
+        label?.numberOfLines = 1
+        label?.lineBreakMode = .byClipping
+        label?.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
+        label?.font = UIFont(name: "Gibson-Regular", size: 12)
+        return label!
+    }()
+    var openNowLabel: UILabel = {
+        let label = UILabel.newAutoLayout()
+        label?.numberOfLines = 1
+        label?.lineBreakMode = .byClipping
+        label?.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
+        label?.font = UIFont(name: "Gibson-Regular", size: 18)
+        label?.text = "Open Now"
+        label?.textAlignment = .right
+        return label!
+    }()
     
     // RATING
     var ratingView: CosmosView!
@@ -54,10 +84,6 @@ class CardViewController: UIView {
         clipView.clipsToBounds = true
         
         cardView.addSubview(clipView)
-        
-        scrollView = UIScrollView(frame: CGRect.zero)
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        
         clipView.addSubview(scrollView)
         
         //MARK: INITIALIZE IMAGES
@@ -79,41 +105,10 @@ class CardViewController: UIView {
         scrollView.addSubview(ratingView)
         
         //MARK: INITIALIZE TEXT
-        placeTitleLabelView = UIView(frame: CGRect.zero)
-        placeTitleLabel = UILabel(frame: CGRect.zero)
-        placeTitleLabel.textColor = UIColor.white
-        placeTitleLabel.font = UIFont(name: "Gibson-Semibold", size: 25)
-        
-        placeTitleLabelView.addSubview(placeTitleLabel)
-        scrollView.addSubview(placeTitleLabelView)
-        
-        placeDistanceLabelView = UIView(frame: CGRect.zero)
-        placeDistanceLabel = UILabel(frame: CGRect.zero)
-        placeDistanceLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
-        placeDistanceLabel.font = UIFont(name: "Gibson-Regular", size: 18)
-        
-        placeDistanceLabelView.addSubview(placeDistanceLabel)
-        scrollView.addSubview(placeDistanceLabelView)
-        
-        placeNumReviewsLabelView = UIView(frame: CGRect.zero)
-        placeNumReviewsLabel = UILabel(frame: CGRect.zero)
-        placeNumReviewsLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
-        placeNumReviewsLabel.font = UIFont(name: "Gibson-Regular", size: 12)
-        
-        placeNumReviewsLabelView.addSubview(placeNumReviewsLabel)
-        scrollView.addSubview(placeNumReviewsLabelView)
-        
-        openNowLabelView = UIView(frame: CGRect.zero)
-        openNowLabel = UILabel(frame: CGRect.zero)
-        openNowLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
-        openNowLabel.font = UIFont(name: "Gibson-Regular", size: 18)
-        openNowLabel.text = "Open Now"
-        openNowLabelView.layer.borderWidth = 1
-        openNowLabelView.layer.borderColor = UIColor.red.cgColor
-        openNowLabel.textAlignment = .right
-        
-        openNowLabelView.addSubview(openNowLabel)
-        scrollView.addSubview(openNowLabelView)
+        scrollView.addSubview(placeTitleLabel)
+        scrollView.addSubview(placeDistanceLabel)
+        scrollView.addSubview(placeNumReviewsLabel)
+        scrollView.addSubview(openNowLabel)
         
         self.setNeedsUpdateConstraints()
     }
@@ -148,32 +143,27 @@ class CardViewController: UIView {
             cardImageView.autoPinEdge(.right, to: .right, of: clipView)
             cardImageView.autoSetDimension(.height, toSize: 161)
             
+            // SETUP TEXT CONSTRAINTS
+            placeTitleLabel.setContentCompressionResistancePriority(UILayoutPriority.required, for: .vertical)
+            placeTitleLabel.autoPinEdge(.top, to: .top, of: scrollView, withOffset: edgesInset)
+            placeTitleLabel.autoPinEdge(.left, to: .left, of: scrollView, withOffset: edgesInset)
+            
+            placeDistanceLabel.setContentCompressionResistancePriority(UILayoutPriority.required, for: .vertical)
+            placeDistanceLabel.autoPinEdge(.left, to: .left, of: scrollView, withOffset: edgesInset)
+            placeDistanceLabel.autoPinEdge(.top, to: .bottom, of: placeTitleLabel, withOffset: edgesInset / 2)
+            
+            placeNumReviewsLabel.setContentCompressionResistancePriority(UILayoutPriority.required, for: .vertical)
+            placeNumReviewsLabel.autoPinEdge(.left, to: .right, of: ratingView, withOffset: edgesInset)
+            placeNumReviewsLabel.autoPinEdge(.top, to: .top, of: ratingView, withOffset: -2)
+            
+            openNowLabel.setContentCompressionResistancePriority(UILayoutPriority.required, for: .vertical)
+            openNowLabel.autoPinEdge(.trailing, to: .trailing, of: scrollView, withOffset: edgesInset)
+            openNowLabel.autoPinEdge(.top, to: .top, of: placeDistanceLabel)
+            
             // SETUP RATING CONSTRAINTS
-            ratingView.autoPinEdge(.top, to: .bottom, of: placeDistanceLabelView, withOffset: edgesInset / 2)
+            ratingView.autoPinEdge(.top, to: .bottom, of: placeDistanceLabel, withOffset: edgesInset / 2)
             ratingView.autoPinEdge(.left, to: .left, of: scrollView, withOffset: edgesInset)
             
-            // SETUP TEXT CONSTRAINTS
-            placeTitleLabel.sizeToFit()
-            placeTitleLabelView.autoSetDimension(.height, toSize: placeTitleLabel.bounds.height)
-            placeTitleLabelView.autoPinEdge(.left, to: .left, of: scrollView, withOffset: edgesInset)
-            placeTitleLabelView.autoPinEdge(.top, to: .top, of: scrollView, withOffset: edgesInset)
-            
-            placeDistanceLabel.sizeToFit()
-            placeDistanceLabelView.autoSetDimension(.height, toSize: placeDistanceLabel.bounds.height)
-            placeDistanceLabelView.autoSetDimension(.width, toSize: placeDistanceLabel.bounds.width)
-            placeDistanceLabelView.autoPinEdge(.left, to: .left, of: scrollView, withOffset: edgesInset)
-            placeDistanceLabelView.autoPinEdge(.top, to: .bottom, of: placeTitleLabelView, withOffset: edgesInset / 2)
-            
-            placeNumReviewsLabel.sizeToFit()
-            placeNumReviewsLabelView.autoSetDimension(.height, toSize: placeNumReviewsLabel.bounds.height)
-            placeNumReviewsLabelView.autoPinEdge(.top, to: .bottom, of: placeDistanceLabelView, withOffset: edgesInset / 2)
-            placeNumReviewsLabelView.autoPinEdge(.left, to: .right, of: ratingView, withOffset: edgesInset)
-            
-            openNowLabel.sizeToFit()
-            openNowLabelView.autoSetDimension(.height, toSize: openNowLabel.bounds.height)
-            openNowLabelView.autoSetDimension(.width, toSize: openNowLabel.bounds.width)
-            openNowLabelView.autoPinEdge(.trailing, to: .trailing, of: scrollView, withOffset: edgesInset)
-            openNowLabelView.autoPinEdge(.top, to: .top, of: placeDistanceLabelView)
             shouldSetupConstraints = false
         }
         super.updateConstraints()

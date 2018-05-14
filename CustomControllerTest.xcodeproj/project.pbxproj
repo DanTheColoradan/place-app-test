@@ -8,13 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0746A1585E4768121975D4AC /* Pods_CustomControllerTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B423CD5EA9594598DCCB17FA /* Pods_CustomControllerTest.framework */; };
-		C5F0828320A752A700CD54D9 /* CardViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F0828220A752A700CD54D9 /* CardViewController2.swift */; };
+		C5F0828320A752A700CD54D9 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F0828220A752A700CD54D9 /* CardViewController.swift */; };
 		C5FAF78720A4D9780084C149 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FAF78620A4D9780084C149 /* AppDelegate.swift */; };
 		C5FAF78920A4D9780084C149 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FAF78820A4D9780084C149 /* ViewController.swift */; };
 		C5FAF78C20A4D9780084C149 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5FAF78A20A4D9780084C149 /* Main.storyboard */; };
 		C5FAF78E20A4D9790084C149 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5FAF78D20A4D9790084C149 /* Assets.xcassets */; };
 		C5FAF79120A4D9790084C149 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5FAF78F20A4D9790084C149 /* LaunchScreen.storyboard */; };
-		C5FAF79920A4D9C00084C149 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FAF79820A4D9C00084C149 /* CardViewController.swift */; };
 		C5FAF7A420A5C3560084C149 /* Gibson-Semibold-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C5FAF79B20A5C3550084C149 /* Gibson-Semibold-Italic.otf */; };
 		C5FAF7A520A5C3560084C149 /* Gibson-Bold-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C5FAF79C20A5C3550084C149 /* Gibson-Bold-Italic.otf */; };
 		C5FAF7A620A5C3560084C149 /* Gibson.otf in Resources */ = {isa = PBXBuildFile; fileRef = C5FAF79D20A5C3550084C149 /* Gibson.otf */; };
@@ -30,7 +29,7 @@
 		4B09527C110B116232709C2C /* Pods-CustomControllerTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomControllerTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-CustomControllerTest/Pods-CustomControllerTest.release.xcconfig"; sourceTree = "<group>"; };
 		521BC97F326B141FA43EA185 /* Pods-CustomControllerTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomControllerTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CustomControllerTest/Pods-CustomControllerTest.debug.xcconfig"; sourceTree = "<group>"; };
 		B423CD5EA9594598DCCB17FA /* Pods_CustomControllerTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CustomControllerTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C5F0828220A752A700CD54D9 /* CardViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController2.swift; sourceTree = "<group>"; };
+		C5F0828220A752A700CD54D9 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		C5FAF78320A4D9780084C149 /* CustomControllerTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomControllerTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5FAF78620A4D9780084C149 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5FAF78820A4D9780084C149 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,7 +37,6 @@
 		C5FAF78D20A4D9790084C149 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5FAF79020A4D9790084C149 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5FAF79220A4D9790084C149 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C5FAF79820A4D9C00084C149 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		C5FAF79B20A5C3550084C149 /* Gibson-Semibold-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gibson-Semibold-Italic.otf"; sourceTree = "<group>"; };
 		C5FAF79C20A5C3550084C149 /* Gibson-Bold-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gibson-Bold-Italic.otf"; sourceTree = "<group>"; };
 		C5FAF79D20A5C3550084C149 /* Gibson.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Gibson.otf; sourceTree = "<group>"; };
@@ -106,8 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				C5FAF78820A4D9780084C149 /* ViewController.swift */,
-				C5FAF79820A4D9C00084C149 /* CardViewController.swift */,
-				C5F0828220A752A700CD54D9 /* CardViewController2.swift */,
+				C5F0828220A752A700CD54D9 /* CardViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -272,8 +269,7 @@
 			files = (
 				C5FAF78920A4D9780084C149 /* ViewController.swift in Sources */,
 				C5FAF78720A4D9780084C149 /* AppDelegate.swift in Sources */,
-				C5FAF79920A4D9C00084C149 /* CardViewController.swift in Sources */,
-				C5F0828320A752A700CD54D9 /* CardViewController2.swift in Sources */,
+				C5F0828320A752A700CD54D9 /* CardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

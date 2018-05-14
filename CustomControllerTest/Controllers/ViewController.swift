@@ -10,12 +10,12 @@ import UIKit
 import PureLayout
 
 class ViewController: UIViewController {
-    var newCardView: CardViewController2!
+    var newCardView: CardViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        newCardView = CardViewController2(frame: CGRect.zero)
+        newCardView = CardViewController(frame: CGRect.zero)
         newCardView.placeTitleLabel.text = "Breakfast Place"
         newCardView.placeDistanceLabel.text = "2mi"
         newCardView.ratingView.rating = 4
